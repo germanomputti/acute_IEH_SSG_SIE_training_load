@@ -9,7 +9,7 @@ library(jtools)
 
 rm(list=ls()) 
 ###CHANGE HERE FOR ACTUAL ROOT DIRECTORY
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 source(paste0(root,"/chosen_models_training_load.r")) 
 
 rm(list = setdiff(ls(), c("models_list","root")))
@@ -19,6 +19,7 @@ rm(list = setdiff(ls(), c("models_list","root")))
 
 
 results_single_model = function(model, export_directory){
+  formula_model=formula(model) 
 variable=as.character(formula_model[2])
 
 
@@ -48,7 +49,7 @@ emmean_training_session=cbind(variable,emmean_training_session)
 
 
 ##model data
-formula_model=formula(model) 
+
 
 
 

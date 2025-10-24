@@ -13,9 +13,9 @@ library(ggplot2)
 rm(list=ls())
 
 ###CHANGE HERE FOR ACTUAL ROOT DIRECTORY
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 
-data_frame_directory=paste0(root,"/data/ieh ssg and sit data.xlsx")
+data_frame_directory=paste0(root,"/data/ieh ssg and sie data.xlsx")
 data_frame=read_excel(data_frame_directory)
 
 
@@ -45,9 +45,9 @@ levels(data_frame$condition)=c("HIE","NOR")
 
 data_frame$condition <- factor(data_frame$condition, levels = c("NOR","HIE"))
 
-levels(data_frame$training_session) = c("SSG","SIT")
+levels(data_frame$training_session) = c("SSG","SIE")
 
-data_frame_SIT=subset(data_frame,data_frame$training_session == "SIT")
+data_frame_SIE=subset(data_frame,data_frame$training_session == "SIE")
 data_frame_SSG=subset(data_frame,data_frame$training_session == "SSG")
 
 
@@ -63,7 +63,7 @@ data_frame_SSG$negative_playerscore=3+data_frame_SSG$negative_playerscore
 controle1 = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
 
 
-chosen_models_SIT= matrix(
+chosen_models_SIE= matrix(
     data= c(
     "total_distance", "gamma",
     "average_power", "normal",
@@ -72,8 +72,8 @@ chosen_models_SIT= matrix(
     ),
     byrow=TRUE,ncol=2)
 
-chosen_models_SIT=as.data.frame(chosen_models_SIT)
-names(chosen_models_SIT)= c("variable","distribution")
+chosen_models_SIE=as.data.frame(chosen_models_SIE)
+names(chosen_models_SIE)= c("variable","distribution")
 
 chosen_models_SSG= matrix(
     data= c(
@@ -113,11 +113,11 @@ return (model)
 models_list=list()
 
 
-for (i in c(1:nrow(chosen_models_SIT))) {
+for (i in c(1:nrow(chosen_models_SIE))) {
 
-variable=  chosen_models_SIT$variable[i]
-distribution=  chosen_models_SIT$distribution[i]
-models_list[[variable]]=create_model(variable,distribution,data_frame_SIT)
+variable=  chosen_models_SIE$variable[i]
+distribution=  chosen_models_SIE$distribution[i]
+models_list[[variable]]=create_model(variable,distribution,data_frame_SIE)
 
 }
 

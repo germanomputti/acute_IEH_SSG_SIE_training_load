@@ -5,7 +5,7 @@ library(writexl)
 
 rm(list=ls())
 
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 
 actions_recorded=read_excel(paste0(root,"/data/acoes contabilizadas.xlsx"))
 player_score_points = read_excel( paste0(root,"/data/referencia pontuacao acoes.xlsx"))

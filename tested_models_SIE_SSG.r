@@ -14,9 +14,9 @@ library(lmerTest)
 rm(list=ls())
 
 ###CHANGE HERE FOR ACTUAL ROOT DIRECTORY
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 
-data_frame_directory=paste0(root,"/data/ieh ssg and sit data.xlsx")
+data_frame_directory=paste0(root,"/data/ieh ssg and sie data.xlsx")
 data_frame=read_excel(data_frame_directory)
 
 
@@ -42,7 +42,7 @@ levels(data_frame$condition)=c("HIE","NOR")
 
 data_frame$condition <- factor(data_frame$condition, levels = c("NOR","HIE"))
 
-levels(data_frame$training_session) = c("SSG","SIT")
+levels(data_frame$training_session) = c("SSG","SIE")
 
 
 ##Function for exploratory visual analysis 
@@ -225,16 +225,16 @@ max_hr=max_hr)
 ####
 #####
 #####
-### SIT only
+### SIE only
 
-data_frame_sit=subset(data_frame,data_frame$training_session == "SIT")
+data_frame_SIE=subset(data_frame,data_frame$training_session == "SIE")
 
 
 ##### total_distance
 
-exploratory_graphs("total_distance",data_frame_sit)
-model_normal_total_distance=lmer(total_distance ~ condition + (1|id),data=data_frame_sit)
-model_gamma_total_distance=glmer(total_distance ~ condition + (1|id),data=data_frame_sit,family=Gamma(link="identity"),control=controle1)
+exploratory_graphs("total_distance",data_frame_SIE)
+model_normal_total_distance=lmer(total_distance ~ condition + (1|id),data=data_frame_SIE)
+model_gamma_total_distance=glmer(total_distance ~ condition + (1|id),data=data_frame_SIE,family=Gamma(link="identity"),control=controle1)
 
 check_models(model_normal_total_distance)
 check_models(model_gamma_total_distance) 
@@ -245,11 +245,11 @@ total_distance=model_gamma_total_distance
 
 ####average_power
 
-exploratory_graphs("average_power",data_frame_sit)
+exploratory_graphs("average_power",data_frame_SIE)
 
-model_normal_average_power=lmer(average_power ~ condition + (1|id),data=data_frame_sit)
+model_normal_average_power=lmer(average_power ~ condition + (1|id),data=data_frame_SIE)
 
-model_gamma_average_power=glmer(average_power ~ condition + (1|id),data=data_frame_sit,family=Gamma(link="identity"),control=controle1)
+model_gamma_average_power=glmer(average_power ~ condition + (1|id),data=data_frame_SIE,family=Gamma(link="identity"),control=controle1)
 
 check_models(model_normal_average_power) 
 check_models(model_gamma_average_power) 
@@ -259,10 +259,10 @@ average_power=model_normal_average_power
 
 #### max_power
 
-exploratory_graphs("max_power",data_frame_sit)
-model_normal_max_power=lmer(max_power ~ condition + (1|id),data=data_frame_sit)
+exploratory_graphs("max_power",data_frame_SIE)
+model_normal_max_power=lmer(max_power ~ condition + (1|id),data=data_frame_SIE)
 
-model_gamma_max_power=glmer(max_power ~ condition + (1|id),data=data_frame_sit,family=Gamma(link="identity"),control=controle1)
+model_gamma_max_power=glmer(max_power ~ condition + (1|id),data=data_frame_SIE,family=Gamma(link="identity"),control=controle1)
 
 check_models(model_normal_max_power) 
 check_models(model_gamma_max_power) 
@@ -272,10 +272,10 @@ max_power=model_gamma_max_power
 
 ##### fatigue_index
 
-exploratory_graphs("fatigue_index",data_frame_sit)
+exploratory_graphs("fatigue_index",data_frame_SIE)
 
-model_normal_fatigue_index=lmer(fatigue_index ~ condition + (1|id),data=data_frame_sit)
-model_gamma_fatigue_index=glmer(fatigue_index ~ condition + (1|id),data=data_frame_sit,family=Gamma(link="identity"),control=controle1)
+model_normal_fatigue_index=lmer(fatigue_index ~ condition + (1|id),data=data_frame_SIE)
+model_gamma_fatigue_index=glmer(fatigue_index ~ condition + (1|id),data=data_frame_SIE,family=Gamma(link="identity"),control=controle1)
 
 
 check_models(model_normal_fatigue_index) 
@@ -283,7 +283,7 @@ check_models(model_gamma_fatigue_index)
 
 fatigue_index=model_normal_fatigue_index
 
-list_sit_models=list(total_distance=total_distance,
+list_SIE_models=list(total_distance=total_distance,
 max_power=max_power,
 average_power=average_power,
 fatigue_index=fatigue_index)

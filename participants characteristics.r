@@ -3,10 +3,10 @@ library(writexl)
 library(dplyr)
 
 rm(list=ls())
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 
 
-data=read_excel(paste0(root,"/ieh ssg and sit data.xlsx"))
+data=read_excel(paste0(root,"/ieh ssg and sie data.xlsx"))
 
 selected_data=data %>%
     filter(training_order == 1 & id != 9) %>%

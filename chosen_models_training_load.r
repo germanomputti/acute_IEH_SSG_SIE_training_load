@@ -13,9 +13,9 @@ library(ggplot2)
 rm(list=ls())
 
 ###CHANGE HERE FOR ACTUAL ROOT DIRECTORY
-root="/Users/germano/Library/CloudStorage/OneDrive-Pessoal/XUSP/GECIFEX/Producoes/Artigos/artigo 1 mestrado - agudo sessao/data analysis – ieh – ssg and sit"
+root=""
 
-data_frame_directory=paste0(root,"/data/ieh ssg and sit data.xlsx")
+data_frame_directory=paste0(root,"/data/ieh ssg and sie data.xlsx")
 data_frame=read_excel(data_frame_directory)
 
 
@@ -41,7 +41,7 @@ levels(data_frame$condition)=c("HIE","NOR")
 
 data_frame$condition <- factor(data_frame$condition, levels = c("NOR","HIE"))
 
-levels(data_frame$training_session) = c("SSG","SIT")
+levels(data_frame$training_session) = c("SSG","SIE")
 
 
 

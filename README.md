@@ -1,6 +1,6 @@
-## Acute effects of inter-effort recovery hypoxia on physiological responses and training quality during sprint interval training and small-sided games in handball: a randomised crossover trial
+## Effects of inter-effort recovery hypoxia on physiological responses and training quality during sprint interval exercise and small-sided games in handball: a randomized crossover trial
 
-This repository contains the scripts used to analyze data by generalized linear mixed models from a trial investigating the effects of inter-effort hypoxic training on sprint interval training (SIT) and small-sided games (SSG) in handball
+This repository contains the scripts used to analyze data by generalized linear mixed models from a trial investigating the effects of inter-effort hypoxic training on sprint interval exercise (SIE) and small-sided games (SSG) in handball
 
 ---
 
@@ -10,7 +10,7 @@ This repository contains the scripts used to analyze data by generalized linear 
 > - Change the root directory as needed
 > - Install all required R packages
 
-### `tested_models_SIT_JR.R`
+### `tested_models_SIE_SSG.R`
 
 - First script to be run.
 - Used to test all models as described in `methods.pdf`.
